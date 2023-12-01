@@ -29,50 +29,50 @@
                     @method('put')
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="name" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Name
                             </label>
-                            <input value="{{ old('name') ?? $item->name }}" name="name" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="text" placeholder="Food Name">
+                            <input id="name" type="text" placeholder="Food Name" value="{{ old('name') ?? $item->name }}" name="name" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="description" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Description
                             </label>
-                            <textarea name="description" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="text" placeholder="Food Description">{{ old('description') ?? $item->description }}</textarea>
+                            <textarea id="description" type="text" placeholder="Food Description" name="description" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">{{ old('description') ?? $item->description }}</textarea>
                         </div>
                     </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="ingredients" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Ingredients
                             </label>
-                            <input value="{{ old('ingredients') ?? $item->ingredients }}" name="ingredients" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="text" placeholder="Food Ingredients">
+                            <input id="ingredients" type="text" placeholder="Food Ingredients" value="{{ old('ingredients') ?? $item->ingredients }}" name="ingredients" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                             <p class="text-gray-600 text-xs italic">Separated by commas, for example: <strong>Red Onions, Paprika, Onions, Cucumbers</strong></p>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="price" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Price
                             </label>
-                            <input value="{{ old('price') ?? $item->price }}" name="price" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="number" placeholder="Food Price">
+                            <input id="price" type="number" placeholder="Food Price" value="{{ old('price') ?? $item->price }}" name="price" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="rate" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Rate
                             </label>
-                            <input value="{{ old('rate') ?? $item->rate }}" name="rate" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="number" max="5" placeholder="Food Rate">
+                            <input  id="rate" type="number" max="5" placeholder="Food Rate" value="{{ old('rate') ?? $item->rate }}" name="rate" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="types" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Types
                             </label>
-                            <select name="types" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name">
+                            <select id="types" name="types" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                                 <option value="{{ $item->types }}" selected disabled hidden>{{ $item->types == 'new_food' ? 'New Food' : ucfirst($item->types) }}</option>
                                 <option value="recommended">Recommended</option>
                                 <option value="popular">Popular</option>
@@ -98,19 +98,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="">
-                        <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full px-3">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                                    Image
-                                </label>
-                                <input name="picturePath" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="file" placeholder="Food Image">
-                            </div>
-                        </div>
-                        <div class="w-full md:w-2/6 mb-4 md:mb-0">
-                            <img src="{{ $item->picturePath }}" alt="" class="w-full rounded">
-                        </div>
-                    </div> -->
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3 text-right">
                             <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">

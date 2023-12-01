@@ -28,49 +28,49 @@
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="name" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Name
                             </label>
-                            <input value="{{ old('name') }}" name="name" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="text" placeholder="Food Name">
+                            <input id="name" type="text" placeholder="Food Name" value="{{ old('name') }}" name="name" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="description" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Description
                             </label>
-                            <textarea name="description" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="text" placeholder="Food Description">{{ old('description') }}</textarea>
+                            <textarea id="description" type="text" placeholder="Food Description" name="description" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">{{ old('description') }}</textarea>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="ingredients" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Ingredients
                             </label>
-                            <input value="{{ old('ingredients') }}" name="ingredients" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="text" placeholder="Food Ingredients">
+                            <input id="ingredients" type="text" placeholder="Food Ingredients" value="{{ old('ingredients') }}" name="ingredients" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                             <p class="text-gray-600 text-xs italic">Separated by commas, for example: <strong>Red Onions, Paprika, Onions, Cucumbers</strong></p>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="price" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Price
                             </label>
-                            <input value="{{ old('price') }}" name="price" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="number" placeholder="Food Price">
+                            <input id="price" type="number" placeholder="Food Price" value="{{ old('price') }}" name="price" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="rate" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Rate
                             </label>
-                            <input value="{{ old('rate') }}" name="rate" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="number" step="0.01" max="5" placeholder="Food Rate">
+                            <input id="rate" type="number" step="0.01" max="5" placeholder="Food Rate" value="{{ old('rate') }}" name="rate" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label for="types" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Types
                             </label>
-                            <select name="types" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name">
+                            <select id="types" name="types" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
                                 <option value="recommended">Recommended</option>
                                 <option value="popular">Popular</option>
                                 <option value="new_food">New Food</option>
