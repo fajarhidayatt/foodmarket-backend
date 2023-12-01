@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Transaction &raquo; {{ $item->food->name }} by {{ $item->user->name }}
+            <a href="{{ route('transactions.index') }}">Transaction</a> &raquo; {{ $item->food->name }} by {{ $item->user->name }}
         </h2>
     </x-slot>
 
@@ -20,11 +20,11 @@
                             </div>
                             <div class="w-1/6">
                                 <div class="text-sm">Quantity</div>
-                                <div class="text-xl font-bold">{{ number_format($item->quantity) }}</div>
+                                <div class="text-xl font-bold">{{ $item->quantity }}</div>
                             </div>
                             <div class="w-2/6">
                                 <div class="text-sm">Total</div>
-                                <div class="text-xl font-bold">{{ number_format($item->total) }}</div>
+                                <div class="text-xl font-bold">Rp. {{ number_format($item->total) }}</div>
                             </div>
                             <div class="w-1/6">
                                 <div class="text-sm">Status</div>
