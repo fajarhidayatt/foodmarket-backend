@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        //
     }
 
     /**
@@ -40,13 +40,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $data = $request->all();
-
-        $data['picturePath'] = $request->file('picturePath')->store('assets/user', 'public');
-
-        User::create($data);
-
-        return redirect()->route('users.index');
+        //
     }
 
     /**
@@ -68,9 +62,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit',[
-            'item' => $user
-        ]);
+        //
     }
 
     /**
@@ -82,16 +74,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $data = $request->all();
-
-        if($request->file('picturePath'))
-        {
-            $data['picturePath'] = $request->file('picturePath')->store('assets/user', 'public');
-        }
-
-        $user->update($data);
-
-        return redirect()->route('users.index');
+        //
     }
 
     /**
