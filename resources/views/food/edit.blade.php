@@ -80,14 +80,37 @@
                             </select>
                         </div>
                     </div>
-                    <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                                Image
+                    <div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label for="picture-path" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Image
+                                </label>
+                                <input name="picturePath" id="picture-path" type="file" placeholder="Food Image" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                Image Preview
                             </label>
-                            <input name="picturePath" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="file" placeholder="Food Image">
+                            <div class="w-full md:w-2/6 h-56 mb-4 md:mb-0 border ">
+                                <img src="{{ $item->picturePath }}" alt="{{ $item->name }}" class="w-full h-full rounded object-cover" id="preview-img">
+                            </div>
                         </div>
                     </div>
+                    <!-- <div class="">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                                    Image
+                                </label>
+                                <input name="picturePath" class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500" id="grid-last-name" type="file" placeholder="Food Image">
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/6 mb-4 md:mb-0">
+                            <img src="{{ $item->picturePath }}" alt="" class="w-full rounded">
+                        </div>
+                    </div> -->
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3 text-right">
                             <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
@@ -99,4 +122,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function readURL(input) {
+            console.log('input>>>', input.files[0]);
+            if (input.files[0]) {
+                let reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    let previewImg = document.getElementById('preview-img');
+                    previewImg.src = e.target.result;
+                }
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        let picturePath = document.getElementById('picture-path');
+        picturePath.addEventListener('change', function () {
+            readURL(this);
+        });
+    </script>
 </x-app-layout>
