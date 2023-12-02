@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @return
      */
     public function index()
     {
@@ -25,7 +26,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @return
      */
     public function create()
     {
@@ -47,7 +48,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @return
      */
     public function show(User $user)
     {
@@ -60,7 +61,7 @@ class UserController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\User  $user
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @return
      */
     public function edit(User $user)
     {
@@ -87,6 +88,13 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $user_photo_profile = $user['profile_photo_path'];
+
+        // if user photo profile exist, delete it
+        if($user_photo_profile != null) {
+            Storage::disk('public')->delete($user_photo_profile);
+        }
+
         $user->delete();
 
         return redirect()->route('users.index');

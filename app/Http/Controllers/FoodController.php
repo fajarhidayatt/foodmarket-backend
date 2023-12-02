@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FoodRequest;
 use App\Models\Food;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Storage;
 
 class FoodController extends Controller
 {
@@ -85,8 +85,18 @@ class FoodController extends Controller
     {
         $data = $request->all();
 
+        // if upload new photo
         if($request->file('picturePath'))
         {
+            // if old photo exist, delete it
+            if($food['picturePath'] != null) {
+                // get file old photo
+                $old_picture = last(explode('/', $food['picturePath']));
+
+                Storage::disk('public')->delete('assets/food/' . $old_picture);
+            }
+
+            // store path new photo to database
             $data['picturePath'] = $request->file('picturePath')->store('assets/food', 'public');
         }
 
@@ -103,6 +113,14 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
+        // if photo exist, delete it
+        if($food['picturePath'] != null) {
+            // get file photo
+            $old_picture = last(explode('/', $food['picturePath']));
+
+            Storage::disk('public')->delete('assets/food/' . $old_picture);
+        }
+
         $food->delete();
 
         return redirect()->route('food.index');
