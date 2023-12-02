@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -45,7 +46,7 @@ class UserController extends Controller
             }
 
             $user = User::where('email', $request->email)->first();
-            if ( !Hash::check($request->password, $user->password, [])) {
+            if (!Hash::check($request->password, $user->password, [])) {
                 throw new \Exception('Invalid Credentials');
             }
 
@@ -131,12 +132,23 @@ class UserController extends Controller
             return ResponseFormatter::error(['error'=>$validator->errors()], 'Update Photo Fails', 401);
         }
 
+        // if user upload file image
         if ($request->file('file')) {
-
+            // store file to folder storage -> assets/user
             $file = $request->file->store('assets/user', 'public');
-
-            //store your file into database
+            
+            // get user data
             $user = Auth::user();
+
+            // get path for old_photo
+            $old_photo = $user->profile_photo_path;
+
+            // if user already have photo before, delete it
+            if($old_photo != null) {
+                Storage::disk('public')->delete($old_photo);
+            }
+
+            //store file path into database
             $user->profile_photo_path = $file;
             $user->update();
 
